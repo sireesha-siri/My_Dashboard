@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGURU SIREESHA | MERN Developer</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/31b554a4b2.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
+</head>
+
+<body>
+  
+    <!-- for header part -->
+    <header>
+
+        <div class="logosec">
+            <div class="logo">Aguru Sireesha</div>
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+                class="icn menuicn" 
+                id="menuicn" 
+                alt="menu-icon">
+        </div>
+
+        <!-- <div class="searchbar">
+            <input type="text" 
+                   placeholder="Search">
+            <div class="searchbtn">
+              <img src="images/search.png"
+                    class="icn srchicn" 
+                    alt="search-icon">
+              </div>
+        </div> -->
+
+        <div class="message">
+            <!-- <div class="circle"></div>
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" 
+                 class="icn" 
+                 alt=""> -->
+            <div class="dp">
+              <img src='images/mine-removebg-preview.png'
+                    class="dpicn" 
+                    alt="dp">
+              </div>
+        </div>
+
+    </header>
+
+    <div class="main-container">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <img src='images/dashboard.png'
+                            class="nav-img" 
+                            alt="dashboard">
+                        <h3> Dashboard</h3>
+                    </div>
+
+                    <button class="option2 nav-option selected" id='githubButton'>
+                        <img src="data:image/png;base64,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"
+                            class="nav-img" 
+                            alt="articles">
+                        <h3> Github</h3>
+                    </button>
+
+                    <button class="nav-option option3" id='skillsButton'>
+                        <img src='data:image/png;base64,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'
+                            class="nav-img" 
+                            alt="skills">
+                        <h3> Skills</h3>
+                    </button>
+
+
+                    <button class="nav-option option4" id="projectsButton">
+                        <img src="data:image/png;base64,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"
+                            class="nav-img" 
+                            alt="institution">
+                        <h3>Projects</h3>
+                    </button>
+
+                    <button class="nav-option option5" id="achievementsButton">
+                        <img src='data:image/png;base64,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'
+                            class="nav-img" 
+                            alt="blog">
+                        <h3> Achievements</h3>
+                    </button>
+
+
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+
+            <!-- <div class="searchbar2">
+                <input type="text" 
+                       name="" 
+                       id="" 
+                       placeholder="Search">
+                <div class="searchbtn">
+                  <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" 
+                        alt="search-button">
+                  </div>
+            </div> -->
+
+            <!-- Github -->
+
+            <section id="sectionGithub" style="display: block;">
+                <div class="box-container">
+
+                    <div class="box box1">
+                        <div class="text">
+                            <h2 class="topic-heading">60</h2>
+                            <h2 class="topic">Repositories</h2>
+                        </div>
+    
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+    
+                    <div class="box box2">
+                            <div class="text">
+                                <h2 class="topic-heading">314</h2>
+                                <h2 class="topic">Contributions</h2>
+                            </div>
+        
+                            <i class="fab fa-github-alt"></i>
+                        </div>
+    
+                        <div class="box box3">
+                            <div class="text">
+                                <h2 class="topic-heading">10</h2>
+                                <h2 class="topic">Technologies used</h2>
+                            </div>
+        
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+    
+                        <div class="box box4">
+                            <div class="text">
+                                <h2 class="topic-heading">8</h2>
+                                <h2 class="topic">In Progress</h2>
+                            </div>
+        
+                            <i class="fa-solid fa-spinner"></i>
+                    </div>
+                </div>
+    
+                <div class="report-container">
+                    <div class="report-header">
+                        <h1 class="recent-Articles">Recent Projects</h1>
+                        <button class="view">View All</button>
+                    </div>
+    
+                    <div class="report-body">
+                        <div class="report-topic-heading">
+                            <h3 class="t-op">Project</h3>
+                            <h3 class="t-op">Tech Stack</h3>
+                            <h3 class="t-op">Status</h3>
+                        </div>
+    
+                        <div class="items">
+                            
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">AI - Resume Parsing</h3>
+                                <h3 class="t-op-nextlvl">Python, NLP</h3>
+                                <h3 class="t-op-nextlvl label-tag">Completed</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">Nxt Watch</h3>
+                                <h3 class="t-op-nextlvl">HTML, CSS, React, REST API</h3>
+                                <h3 class="t-op-nextlvl label-tag">Completed</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">Task Tracker</h3>
+                                <h3 class="t-op-nextlvl">React, Node.js, Sqlite</h3>
+                                <h3 class="t-op-nextlvl label-tag">In Progress</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">Covid Dashboard</h3>
+                                <h3 class="t-op-nextlvl">Python, Matplotlib</h3>
+                                <h3 class="t-op-nextlvl label-tag">Completed</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">E-commerce Website</h3>
+                                <h3 class="t-op-nextlvl">HTML, CSS, React, REST API</h3>
+                                <h3 class="t-op-nextlvl label-tag">Completed</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">Portfolio Website</h3>
+                                <h3 class="t-op-nextlvl">HTML, CSS, Tailwind</h3>
+                                <h3 class="t-op-nextlvl label-tag">In Progress</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">Diamond Price Prediction</h3>
+                                <h3 class="t-op-nextlvl">Python, Machine Learning, Matplotlib</h3>
+                                <h3 class="t-op-nextlvl label-tag">Completed</h3>
+                            </div>
+    
+                            <div class="item1">
+                                <h3 class="t-op-nextlvl">Twitter Clone</h3>
+                                <h3 class="t-op-nextlvl">Node Js, Express Js, Sqlite, Js</h3>
+                                <h3 class="t-op-nextlvl label-tag">Completed</h3>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Skills -->
+
+            <section id="sectionSkills" class="skills-container" style="display: none;">
+                <!-- Soft Skills Chart Container -->
+                <div class="chart-container">
+                    <h3 class="skills-heading">Soft Skills</h3>
+                    <canvas id="softSkillsChart" width="600" height="400"></canvas>
+                </div>
+                
+                <!-- Technical Skills Container (Frontend and Backend) -->
+                <div class="technical-container">
+                    <!-- Frontend Skills Chart -->
+                    <div class="chart-container">
+                        <h3 class="skills-heading">Technical Skills - Frontend</h3>
+                        <canvas id="frontendChart" width="1000" height="1000"></canvas>
+                    </div>
+            
+                    <!-- Backend Skills Chart -->
+                    <div class="chart-container">
+                        <h3 class="skills-heading">Technical Skills - Backend</h3>
+                        <canvas id="backendChart" width="300" height="100"></canvas>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Projects -->
+
+            <section id="sectionProjects" class="projects-container" style="display: none;">
+                <div class="projects-container">
+
+                    <!-- Project 1 -->
+                    <a href='http://nxtwatchbysiri.ccbp.tech/' class="project-card">
+                        <img src="https://img.freepik.com/free-vector/video-screen-computer-broadcasting-icon-isolated_24877-83302.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 2 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Nxt Watch
+                            </h3>
+                            <p class="project-description">
+                                
+Nxtwatch is a YouTube clone that allows users to browse, search, and watch videos. It mimics core YouTube functionalities, providing a seamless video streaming experience. User name rahul, password rahul@2021
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong> HTML, CSS, React, REST API
+                            </p>
+                            
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 2 -->
+                    <a href='https://github.com/sireesha-siri/Image-Processing-Project' class="project-card">
+                        <img src="https://img.freepik.com/free-vector/online-resume-concept-illustration_114360-5166.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 2 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">AI-Resume Parsing</h3>
+                            <p class="project-description">
+                                Extract text from resume images using OCR and rank the top 5 candidates out of 10 with NLP. This project streamlines the recruitment process, making it faster and more accurate.
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong> Python, NLP, OCR, Tessract
+                            </p>
+
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 3 -->
+                    <a href='http://asirisnxttrendz.ccbp.tech/' class="project-card">
+                        <img src="https://img.freepik.com/free-vector/fashion-shopping-app-template_23-2148672082.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 3 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Nxt Trendz</h3>
+                            <p class="project-description">
+                                Nxt Trendz is an e-commerce website where users can browse, search, and view product details with an easy-to-use interface.It features a user-friendly interface for shopping. User name rahul, password rahul@2021.
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong>  HTML, CSS, React, REST API
+                            </p>
+
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+            
+                    <!-- Project 4 -->
+                    <a href='https://github.com/sireesha-siri/Covid19_DashBoard' class="project-card">
+                        <img src="https://img.freepik.com/premium-photo/3d-render-icon-3d-bar-chart-with-different-anatomy-sections-like-bones-muscles-icon-3d-analysis_983055-3095.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 4 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Covid 19 Dashboard</h3>
+                            <p class="project-description">
+                                This project collects COVID-19 data and displays it using scatter plots, bar charts, and pie charts. It compares daily cases, gender distribution, and age groups to provide clear insights into the pandemic's impact.
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong>Python, Matplotlib, Jupyter Notebook
+                            </p>
+
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 5 -->
+                    <a href='http://jobbyappbysiri.ccbp.tech/' class="project-card">
+                        <img src="https://img.freepik.com/premium-vector/job-searching-specialists-choosing-best-candidate-job-profiles-various-people-with-ranking-company-searching-new-employee-recruitment-concept-illustration_270158-629.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 5 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Jobby App</h3>
+                            <p class="project-description">
+                                Jobby App is a comprehensive job search platform where users can explore, filter, and apply for various job opportunities based on their preferences. User name rahul, password rahul@2021.
+                            </p>
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong> HTML, CSS, React, REST API
+                            </p>
+                            
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 6 -->
+                    <a href='https://github.com/sireesha-siri/Price_Of_The_Diamond' class="project-card">
+                        <img src="https://img.freepik.com/premium-vector/man-woman-are-looking-magnifying-glass-flat-illustration-business_1134986-9304.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 6 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Price of Diamond</h3>
+                            <p class="project-description">
+                                This project predicts diamond prices by applying machine learning algorithms to analyze features like carat, color, clarity, and cut. It aims to provide accurate price estimates based on these characteristics.
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong> Python, Machine Learning, Google colob
+                            </p>
+
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <!-- Project 7 -->
+                    <a href="http://siriapitesting.ccbp.tech" class="project-card">
+                        <img src="https://img.freepik.com/free-vector/api-concept-illustration_114360-9822.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 7 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Go REST Console</h3>
+                            <p class="project-description">
+                                Go Rest Console is a tool designed to help users easily test and analyze API performance, offering insights and simplifying API interaction.
+                            </p>
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong> HTML, CSS, JS, Bootstrap, REST API
+                            </p>
+
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Project 8 -->
+                    <a href='http://jobbyappbysiri.ccbp.tech/' class="project-card">
+                        <img src="https://img.freepik.com/free-vector/content-editor-editing-feed-vector_53876-77992.jpg?ga=GA1.1.1886958102.1716133369&semt=ais_hybrid" alt="Project 8 Image" class="project-image">
+                        <div class="project-info">
+                            <h3 class="project-title">Twitter </h3>
+                            <p class="project-description">
+                                A backend system for a Twitter clone with APIs for user registration, following, tweeting, replying, and liking. The database includes five tables: user, follower, tweet, reply, and like.
+                            </p>
+                            </p>
+                            <p class="project-tools">
+                                <strong>Tools Used:</strong> JS, Node JS, Express JS, Sqlite, REST API
+                            </p>
+
+                            <div style="text-align: right;">
+                                <i class="fa-solid fa-arrow-right" style="color: teal;"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </section> 
+
+
+            <!-- Achievements -->
+
+            <section id="sectionAchievements" class="achievements-container" style="display: none;">
+                <!-- Achievement 1 -->
+                <div class="achievement-card">
+                    <h3 class="achievement-title">Poster Design Participation</h3>
+                    <p class="achievement-description">Participated in designing a poster for the AI Resume Parsing project.</p>
+                    <div class="certificate">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D22AQHBbEXm127ZOg/feedshare-shrink_800/feedshare-shrink_800/0/1696872214010?e=1729728000&v=beta&t=XLyDZhxNPRBLcxWeTjQa1l2LCk5hbwaDUf7Q-2dDa7M" alt="Certificate Image" class="certificate-image">
+                        <p class="certificate-description">Certificate of Participation</p>
+                    </div>
+                </div>
+            
+                <!-- Achievement 2 -->
+                <div class="achievement-card">
+                    <h3 class="achievement-title">Panel Discussion - 1st Place</h3>
+                    <p class="achievement-description">Secured 1st place in a panel discussion.</p>
+                    <div class="certificate">
+                        <img src="https://media.licdn.com/dms/image/v2/D4D22AQFcYDIo_ABr4w/feedshare-shrink_800/feedshare-shrink_800/0/1697127369123?e=1729728000&v=beta&t=DJPFled4VmfmTFg-Q0wrBCHav7Obvw8MSOzEHf60VU0" alt="Certificate Image" class="certificate-image">
+                        <p class="certificate-description">Certificate of Achievement</p>
+                    </div>
+                </div>
+            </section>
+            
+
+        </div>
+    </div>
+
+
+    </body>
+
+    <script src="index.js"></script>
+    
+</html>
